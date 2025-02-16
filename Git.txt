@@ -1,0 +1,55 @@
+	- Git là hệ thống quản lý phiên bản phân tán,Giúp quản lý,theo dõi mã nguồn trong quá trình phát triển phần mềm. Cho phép nhiều người cùng lamf việc trên dự án mà không bị ghi đè công việc của nhau
+	
+Lợi ích:
+	+ Theo dõi sự thay đổi của tập tin
+	+ Theo dõi sự thay đổi của người dung trên tập tin
+	+ Hỗ trợ làm việc nhóm và offline
+	+ Phục hồi trạng thái tập tin tại 1 thời điểm nào đó
+
+Repository(kho) nơi quản lý các thạng thái của thư mục và file, đối tượng quanr lý lịch sử thay đổi của nội dung
+
+Commit(ghi lại thay đổi): Việc thay đổi/thêm file hay thư mục vào repository được goij là 			  Commit,Ghi lại trạng thái từ commit lần trước tới commit hiện tại
+
+
+- Hệ thống quản lý phiên bản tập trung(CVCS) và Phân tán (DVCS)
+
+- Phân tán:
+	+ Kiến trúc:Mỗi lập trình viên có một bản sao đầy ủ của kho lưu trữ(repo) trên máy tính cá nhân
+	+ Cách thức hoạt động: Có thể làm việc offline và đồng bộ máy chủ nếu cần 
+	+ Hiệu suất: Nếu một máy chủ bị lỗi vẫn có thể khôi phục từ máy cá nhân
+	+ Tốc độ: Nhanh hơn vì thao tác trên máy cá nhân
+
+- Tập trung: 
+	+ Kiến trúc: có một máy chủ lưu trữ toàn bộ mã nguồn,làm việc trực tiếp trên server
+	+ Cách thức hoạt động: Người dùng phải kết nối với máy chủ hoặc cập nhật mã nguồn
+	+ Hiệu suất: nếu máy chủ bị lỗi toàn bộ nhóm không thể làm việc
+	+ Tốc độ: Chậm do mọi thao tác cần kêt nối với máy chủ 
+
+
+- Các khối lệnh cơ bản
+	+ Git config --global user.name ""       -> Setting username,email
+	  Git config --global user.email ""
+	
+	+ Git init : Khởi tạo git repo cho code có sẵn
+	+ Git clone <url> : Clone một remote repository
+	+ git fetch: Lấy các  thay đổi mới nhất từ remote repo về máy nưng không tự đông 		     merge
+	+ gt fetch origin: reset về trạng thái của remote
+	+ Git diff: xem thay đổi(chưa được add) của những file hiện tại
+	+ Git status: kiểm tra status của thư mục làm việc(có tệp nào thay đổi,chưa commit...)
+	+ git add <tên tệp>: thêm tệp vào vùng Staging(chẩn bị commit). Git add . để thêm tất cả các tệp
+	+ git pull: lấy thayổi từ remote repo về và tự động merge vào branch hiện tại
+	+ git push: đẩy commit từ local lên remote 
+	+ git merge <tên branch>: merge branch vào branch hiện tại
+	+ git rebase <tên branch>: di chuyển các comit của nhánh hiện tại lên đầu <tên brach>,giúp lịch sử commit gọn gàng hơn
+	+ git checkout <tên branch> : di chuyeenr sang nhánh <tên branch>
+	+ git reset --soft <commit id>: quay lại <commit_id> nhưng giữ lại các thay  đổi tại staging
+	+ git reset --hard <commit_id> Hoàn tất mội thay  đổiđưa repo về trạng thái commit id	
+	+ git stash: lưu tạm thời các thay đổi chưa commit  để chuyển sang nhánh khác mà không mất dữ liệu 
+	+git stah pop: khôi phục lại những thay đổi  lưu bằng git stash
+	+ git log: xem commit history
+
+	+ git checkout new-branch-name: Chuyển sang nhanhs khác
+	+ git checkout master:
+	  git branch new-branch-name  : Ta nhan mới từ nhnh master
+	+ git checkout -b new-branch-name : vua tao nhanh moi vua chuyen sang nhanh vừa tạo
+ 	+ git branch -d delete-branch-name :  xóa nhánh

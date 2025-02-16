@@ -1,0 +1,40 @@
+- Thêm,Xóa,Di chuyển file Thư mục
+
+Truy cứu toàn bộ file trong folder: ls 
+Truy cứu file ẩn trong folder: ls -a
+Tạo file mới: mkdir (tên file)
+Truy cập vào thư mục: cd (tên thư mục)
+Quay trở lại thư mục trước: cd.. 
+Copy file: cp (tên file muốn copy) đường dẫn 
+	VD: co test.txt A/testA.txt
+Di chuyển file: mv (tên file muốn di chuyển) đường dẫn/tên file mới
+	VD: mv test.txt B/testB.txt
+Copy Folder: cp -r (tên Folder muốn copy) đường dẫn/tên folder mới 
+	VD cp -r A B/E
+Di chuyển thư mục: mv (tên folder muốn di chuyển) đường dẫn/tên folder mới
+	VD mv L A/N
+Xóa folder rỗng: rmdir(tên folder)
+Xóa folder không rỗng: rm -r (tên folder)
+
+- Phân quyền
+ + Định dạng file: -rw-r--r--
+	- là file ( dr là folder)
+	rw-: quyền của user
+	r--: quyền của group(chỉ read)
+	r--: quyền của other(chỉ read) 
+
+- Giá trị quyền theo số 
+Giá trị số	Quyền tương ứng	Mô tả
+0	---	Không có quyền
+1	--x	Chỉ thực thi (execute)
+2	-w-	Chỉ ghi (write)
+3	-wx	Ghi và thực thi
+4	r--	Chỉ đọc (read)
+5	r-x	Đọc và thực thi
+6	rw-	Đọc và ghi
+7	rwx	Đọc, ghi và thực thi
+
+Cách phân quyền theo số: chmod 444 test.txt (tất cả chỉ read)
+
+
+phân quyền theo chữ 

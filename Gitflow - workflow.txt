@@ -1,0 +1,26 @@
+Gitflow - workflow:
+Các nhánh chính trong gitflow
+
+- feature branches(nhánh tính năng) (con của nhánh develop):
+	+ dung để phát triển các tính năng mới 
+	+ được tạo từ develop sau khi hoàn thành sẽ merge vào nhánh develop
+
+- develop branches(nhánh phát triển)(nhánh con của main):
+	+ là nhánh chính dungđể phát triển phần mềm
+	+ các feature đã hoàn thành sẽ được merge vào nhánh này
+	+ Khi sẵn sàng phát hành, sẽ tạo nhánh release
+
+- release branches(nhánh phát hành)(nhánh con của develop):
+	+ được tạo từ develop khi sẵn sàng ra bản release mới 
+	+ chỉ dành cho sửa lỗi,không thêm tính năng mới
+	+ sau khi kiểm traổn định sẽ merge vào cả master và develop
+
+- hotfix branches(nhánh sửa lỗi khẩn cấp)(nhánh con của master):
+ 	+ duọcđược tạo từ nhánh master sửa lỗi gấp trên bản phát hành
+	+ sau khi sửa lỗi sẽ merge cả vào master và develop để đảm bảo không mất thay đổi
+
+- master branch(nhánh chính)
+	+ Chuaws mã nguồn ổn   định đã phát hành
+	+ mỗi lần merge vào master là một bản pát hành thường đi kèm với tag(0.1,0.2,1.0...)
+	+ chỉ có relase hoajcw hotfix  được merge vào master
+
