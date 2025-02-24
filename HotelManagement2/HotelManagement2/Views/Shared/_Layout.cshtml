@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Sona Template">
+    <meta name="keywords" content="Sona, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sona</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="~/TemPlateLayout/MainWebPage/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/TemPlateLayout/MainWebPage/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/TemPlateLayout/MainWebPage/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/TemPlateLayout/MainWebPage/css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="~/TemPlateLayout/MainWebPage/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/TemPlateLayout/MainWebPage/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/TemPlateLayout/MainWebPage/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="~/TemPlateLayout/MainWebPage/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="~/TemPlateLayout/MainWebPage/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/TemPlateLayout/MainWebPage/css/style.css" type="text/css">
+    @RenderSection("Styles", required: false)
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader">
+        </div>
+    </div>
+
+    <!-- Offcanvas Menu Section Begin -->
+    <partial name="OffCanvasMenu" />
+    <!-- Offcanvas Menu Section End -->
+    <!-- Header Section Begin -->
+    <partial name="HeaderSection" />
+    <!-- Header End -->
+    <!-- Main -->
+    @RenderBody()
+    <!-- Main End-->
+    <!-- Footer Section Begin -->
+    <partial name="Footer" />
+    <!-- Footer Section End -->
+    <!-- Search model Begin -->
+    <partial name="SearchModel" />
+    <!-- Search model end -->
+    <!-- Js Plugins -->
+    <script src="~/TemPlateLayout/MainWebPage/js/jquery-3.3.1.min.js"></script>
+    <script src="~/TemPlateLayout/MainWebPage/js/bootstrap.min.js"></script>
+    <script src="~/TemPlateLayout/MainWebPage/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/TemPlateLayout/MainWebPage/js/jquery.nice-select.min.js"></script>
+    <script src="~/TemPlateLayout/MainWebPage/js/jquery-ui.min.js"></script>
+    <script src="~/TemPlateLayout/MainWebPage/js/jquery.slicknav.js"></script>
+    <script src="~/TemPlateLayout/MainWebPage/js/owl.carousel.min.js"></script>
+    <script src="~/TemPlateLayout/MainWebPage/js/main.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>
