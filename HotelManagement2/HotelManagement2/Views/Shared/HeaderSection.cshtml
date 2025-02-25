@@ -1,4 +1,7 @@
-﻿<header class="header-section">
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Account> signInMangaer
+
+<header class="header-section">
     <div class="top-nav">
         <div class="container">
             <div class="row">
@@ -9,24 +12,27 @@
                     </ul>
                 </div>
                 <div class="col-lg-6">
-                    <div class="tn-right">
-                        <div class="top-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-tripadvisor"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </div>
-                        <a href="#" class="bk-btn">Booking Now</a>
-                        <div class="language-option">
-                            <img src="~/TemplateLayout/MainWebPage/img/flag.jpg" alt="">
-                            <span>EN <i class="fa fa-angle-down"></i></span>
-                            <div class="flag-dropdown">
-                                <ul>
-                                    <li><a href="#">Zi</a></li>
-                                    <li><a href="#">Fr</a></li>
-                                </ul>
+                    <div class="tn-right">                        
+                        
+                        @*if the user iss signed-indexer display Logout link*@
+                        @if (signInMangaer.IsSignedIn(User))
+                        {
+                            <div style="display:flex;align-items:center;">
+                                <a href="#" class="bk-btn">Booking Now</a>
+                                <span style="margin-left: 10px; margin-right:10px; vertical-align:middle">Hi,@User?.Identity?.Name</span>
+                                <form style:"display:inline-block" asp-controller="Account" asp-action="Logout" method="post">
+                                    <button type="submit" class="bk-btn" style="border:none;">Logout</button>
+                                </form>
                             </div>
-                        </div>
+                        }
+                        @if(!signInMangaer.IsSignedIn(User))
+                        {
+                            <a href="#" class="bk-btn">Booking Now</a>
+                            <form style="display:inline-block;" asp-action="Auth" asp-controller="Account" method="get">
+                                <button type="submit" class="bk-btn" style="border:none">Login</button>
+                            </form>
+                        }
+                    </div>
                     </div>
                 </div>
             </div>

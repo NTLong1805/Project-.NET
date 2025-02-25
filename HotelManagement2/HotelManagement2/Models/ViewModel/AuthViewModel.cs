@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Authentication;
+using System.ComponentModel.DataAnnotations;
 
 namespace HotelManagement2.Models.ViewModel
 {
@@ -32,6 +33,14 @@ namespace HotelManagement2.Models.ViewModel
 		[DataType(DataType.Password)]
 		[Compare("RegisterPassword", ErrorMessage = "Password do not match.")]
 		public string ConfirmPassword { get; set; }
+
+
+
+		public string? ReturnUrl {  get; set; }
+
+		public IList<AuthenticationScheme>? ExternalLogins { get; set; }
+
+
 
 		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
 		{

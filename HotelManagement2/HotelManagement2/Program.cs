@@ -27,6 +27,12 @@ builder.Services.Configure<IdentityOptions>(options =>
 	options.Password.RequireNonAlphanumeric = false;
 	options.Password.RequiredLength = 6;
 });
+builder.Services.AddAuthentication().AddGoogle(options =>
+{
+	options.ClientId = "1088429725939-901vokndv75c0pcra4qtdeuqib29hc92.apps.googleusercontent.com";
+	options.ClientSecret = "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";
+});
+	
 
 var app = builder.Build();
 

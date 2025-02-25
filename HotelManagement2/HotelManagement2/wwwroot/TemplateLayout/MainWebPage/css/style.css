@@ -279,7 +279,7 @@ ul, ol {
 	color: #19191a;
 	font-weight: 500;
 	padding: 14px 0 12px;
-	margin-right: 64px;
+	margin-right: 48px;
 	position: relative;
 }
 .top-nav .tn-left li:after {
@@ -2333,5 +2333,10 @@ ul, ol {
 	}
 	.blog-details-text .comment-option .single-comment-item .sc-text a {
 		margin-bottom: 10px;
+	}
+
+	.form-signin{
+		display:inline-block;
+		border:none;
 	}
 }

@@ -21,7 +21,7 @@
             <span>or use your email for registration</span>
 
             <input type="hidden" name="FormType" value="SignUp"/>
-            <div asp-validation-summary="All" class="text-danger"></div>
+           
             <input type="email" placeholder="Email" asp-for="RegisterEmail" />
             <span asp-validation-for="RegisterEmail" class="text-danger"></span>
 
@@ -41,9 +41,21 @@
         <form method="post" asp-action="SignIn">
             <h1>Sign in</h1>
             <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                <a href="javascript:void(0);" class="social external-login-btn"
+                   data-provider="Facebook"
+                   data-url="@Url.Action("ExternalLogin", "Account", new { provider = "Facebook", returnUrl = Model.ReturnUrl })">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="javascript:void(0);" role="button" class="social external-login-btn"
+                   data-provider="Google"
+                   data-url="@Url.Action("ExternalLogin", "Account", new { provider = "Google", returnUrl = Model.ReturnUrl })">
+                    <i class="fab fa-google-plus-g"></i>
+                </a>
+                <a href="javascript:void(0);" class="social external-login-btn"
+                   data-provider="LinkedIn"
+                   data-url="@Url.Action("ExternalLogin", "Account", new { provider = "LinkedIn", returnUrl = Model.ReturnUrl })">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
             </div>
             <span>or use your account</span>
             <input type="hidden" name="FormType" value="SignIn" />
@@ -73,7 +85,7 @@
     </div>
 </div>
 
-<script>
+<script type="text/javascript">
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
@@ -85,9 +97,50 @@ signUpButton.addEventListener('click', () => {
 signInButton.addEventListener('click', () => {
     container.classList.remove("right-panel-active");
 });
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.external-login-btn').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ a
+
+                var provider = this.getAttribute('data-provider');
+                var url = this.getAttribute('data-url');
+
+                if (!url) {
+                    console.error("URL đăng nhập không hợp lệ!");
+                    return;
+                }
+
+                var width = 500;
+                var height = 600;
+                var left = (window.innerWidth / 2) - (width / 2);
+                var top = (window.innerHeight / 2) - (height / 2);
+
+                // Mở cửa sổ popup ngay trong sự kiện click
+                var popup = window.open(url, provider, `width=${width},height=${height},top=${top},left=${left},resizable=yes`);
+
+                if (!popup) {
+                    alert("Trình duyệt đã chặn popup. Vui lòng cho phép popup để tiếp tục.");
+                    return;
+                }
+
+                // Kiểm tra nếu popup bị đóng thì reload trang
+                var checkPopup = setInterval(function () {
+                    if (popup.closed) {
+                        clearInterval(checkPopup);
+                        location.reload();
+                    }
+                }, 500);
+            });
+        });
+    });
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
- 
+
+@section Scripts {
+    <script type="text/javascript">
+        
+    </script>
+}
